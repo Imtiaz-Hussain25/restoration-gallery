@@ -26,6 +26,27 @@ Python 3.10 or newer. No third-party Python packages are required.
 
 The tool generates an HTML comparison; it does not perform restoration. Model inference is not locally tested. The utility has only been checked for syntax and on small synthetic inputs.
 
+
+## Why it is useful
+
+Visual comparisons are easiest when source and result images are paired consistently. This tool finds matching filenames in two folders and generates a single HTML page with side-by-side images.
+
+## Data contract
+
+Input is an `originals` folder and a `restored` folder. Supported extensions are PNG, JPG, JPEG, and WebP. Only exact filename matches are included. Output is one local HTML file with relative image paths.
+
+## Reproduce the example
+
+```bash
+python main.py examples/originals examples/restored examples/gallery.html
+```
+
+The command reads the included sample input. Generated reports in `examples/` can be removed when finished.
+
+## Interpretation
+
+The HTML references image files rather than embedding them. Keep the input folders beside the report when sharing it. The tool does not judge restoration quality.
+
 ## License
 
 MIT. See `LICENSE`.
